@@ -1,3 +1,4 @@
+import Banner from "@/components/Banner";
 import { FadeInSection } from "@/components/FadeSection";
 import FullscreenCarousel from "@/components/FullscreenCarousel";
 import Loader from "@/components/Loader";
@@ -104,9 +105,9 @@ const Index = () => {
           <FadeInSection stop>
             <AboutUs data={data?.data?.about_office} />
           </FadeInSection>
-          {/* <FadeInSection stop>
+          <FadeInSection stop>
             <Banner data={data?.data?.settings} />
-          </FadeInSection> */}
+          </FadeInSection>
           <FadeInSection>
             <TopCategories data={data?.data?.top_products} />
           </FadeInSection>

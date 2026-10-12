@@ -55,7 +55,7 @@ const Checkout = () => {
   const schema = checkoutSchema(t);
   const [deliveryType, setDeliveryType] = useState<"delivery" | "pickup">("delivery");
   // const [orderPlaced, setOrderPlaced] = useState(false);
-  const [paymentType, setpaymentType] = useState<"cash" | "visa">("visa");
+  const [paymentType, setpaymentType] = useState<"cash" | "visa">("cash");
   const { getName } = useName();
   const form = useForm<z.infer<typeof schema>>({
     resolver: zodResolver(schema),
@@ -260,16 +260,17 @@ const Checkout = () => {
                   <div className=" flex gap-2 items-center ">
                     <Label>{t("paymentType")}{" : "}</Label>
                     <RadioGroup
-                      defaultValue="visa"
+                      dir={i18n.language === "en" ? "ltr" : "rtl"}
+                      defaultValue="cash"
                       onValueChange={(value: "cash" | "visa") => setpaymentType(value)}
                       className="flex gap-6"
                     >
 
-                      {/* <div className="flex items-center space-x-2">
+                      <div className="flex items-center gap-2">
                         <RadioGroupItem value="cash" id="cash" />
                         <Label htmlFor="cash">{t("cash")}</Label>
-                      </div> */}
-                      <div className="flex items-center space-x-2">
+                      </div>
+                      <div className="flex items-center gap-2">
                         <RadioGroupItem value="visa" id="visa" />
                         <Label htmlFor="visa">{t("visa")}</Label>
                       </div>
